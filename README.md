@@ -52,7 +52,7 @@ You should adhere to the following rules if you want to "upload" an algorithm:
     ```
     * if you need randomness, use the provided `System.Random` instance: `this.Random`
 
-3. If you want to give up on the challenge (e.g. maybe its unwinnable), you should return an empty `List`
+3. If you want to give up on the challenge (e.g. maybe its unsolvable), you should return an empty `List`
 
 4. Your algorithm class name and filename must be `<algorithm_name>.cs`
 
