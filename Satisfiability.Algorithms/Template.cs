@@ -1,4 +1,8 @@
-﻿using System;
+﻿/*
+    Acknowledgements:
+    --clearly state which existing algorithms you are improving upon (if any)--
+*/
+using System;
 using System.Collections.Generic;
 
 namespace Satisfiability.Algorithms
@@ -20,16 +24,17 @@ namespace Satisfiability.Algorithms
                      Find a combination of boolean values such that the boolean formula evaluates to true
 
                 Rules:
-                     1. You must implement this function
+                     1. You should implement this function
                      2. You are not allowed to use external libraries
-                     3. You must invoke WriteAlgoIdentifier every so often with an int that cannot be guessed without running your algorithm
-                        e.g. WriteAlgoIdentifier(Random.Next() * input.LastIndexOf(true) * input.LastIndexOf(false));
+                     3. You should invoke WriteAlgoIdentifier every so often with a dynamically generated integer
+                        * This allows us to verify when someone is using your algorithm
+                        e.g. multiply all non-zero index of True in your current solution attempt
                      4. If you need to generate random numbers, you must use this.Random
                      5. If you want to give up on the challenge (e.g. maybe its unsolvable), you should return new()
-                     6. Your class name and filename must be `<algorithm_name>.cs`
-                     7. All your utility classes should be contained in a separate namespace `TheInnovationGame.<challenge_type>.Algorithms.<algorithm_name>Utils`
-                     8. If you are improving an existing algorithm, make a copy of the code before making modifications
-                     9. Your algorithm name must be less than or equal to 20 characters
+                     6. Your algorithm name must be less than or equal to 20 characters (alpha-numeric only)
+                     7. Your class name and filename must be `<algorithm_name>.cs` 
+                     8. All your utility classes should be nested in this class or contained in a namespace unique to your algorithm
+                     9. If you are improving an existing algorithm, make a copy of the code before making modifications
 
                 Example Challenge:
                      NumVariables:  5

@@ -32,8 +32,13 @@ namespace Satisfiability.Algorithms
                     numVariablesRemaining -= n;
                 }
 
-                // generate and write an int that cannot be guessed without running your algorithm
-                WriteAlgoIdentifier(Random.Next() * input.LastIndexOf(true) * input.LastIndexOf(false));
+                // generate and write a unique integer that identifies when someone is using your algorithm
+                int uniqueInt = 1;
+                for (int i = 1; i < input.Count; i++)
+                    uniqueInt *= input[i] ? i : 1;
+                WriteAlgoIdentifier(uniqueInt);
+
+                // check if solution has been found
                 if (IsInputSolution(input))
                     return input;
             }
