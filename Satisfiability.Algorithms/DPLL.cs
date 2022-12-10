@@ -3,6 +3,7 @@
     --This is an implementation of the Davis–Putnam–Logemann–Loveland (DPLL) algorithm (https://en.wikipedia.org/wiki/DPLL_algorithm)
     --The idea of using dictionnaries is from Jack's Satv1  
 */
+
 using System;
 using System.Collections.Generic;
 
