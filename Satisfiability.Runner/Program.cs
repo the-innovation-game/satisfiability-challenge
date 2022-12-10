@@ -10,7 +10,7 @@ namespace Satisfiability.Runner
             if (args.Length == 0)
             {
                 args = new string[] {
-                    $"RandomSolver", // typeof(Algorithms.RandomSolver).Name
+                    $"collegeTry", // typeof(Algorithms.RandomSolver).Name
                     $"{true}",
                     $"{int.MaxValue}"
                 };
