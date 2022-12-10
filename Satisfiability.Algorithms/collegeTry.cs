@@ -3,6 +3,7 @@
     --clearly state which existing algorithms you are improving upon (if any)--
 */
 using System;
+using System.Collections;
 using System.Collections.Generic;
 
 namespace Satisfiability.Algorithms
@@ -55,6 +56,33 @@ namespace Satisfiability.Algorithms
                 Example Solution evaluated against Challenge:
                     (false or not false or true) and (not false or not false or false) = true
              */
+
+            List<bool> input = new List<bool>();
+            int numVariablesRemaining = numVariables;
+            while (numVariablesRemaining != 0)
+            {
+                for (int a = 0; a < clauses.Count; a++)
+                {
+                    for (int b = 0; b < clauses[a].Count; b++)
+                    {
+                        int a1 = clauses[a][b];
+                        bool positive = a1 > 0;
+                        input.Add(positive);
+                    }
+                }
+                numVariablesRemaining -= 1;
+            }
+
+
+            // generate and write a unique integer that identifies when someone is using your algorithm
+            int uniqueInt = 1;
+            for (int i = 1; i < input.Count; i++)
+                uniqueInt *= input[i] ? i : 1;
+            WriteAlgoIdentifier(uniqueInt);
+
+            // check if solution has been found
+            if (IsInputSolution(input))
+                return input;
 
             if (DebugMode)
                 Debug.Log("Hello world!");
