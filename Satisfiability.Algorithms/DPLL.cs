@@ -35,7 +35,7 @@ namespace Satisfiability.Algorithms
         {
             List<bool> input = new List<bool>();
         
-            var assignments = DPLL(clauses, new(), numVariables);
+            var assignments = recursiveDPLL(clauses, new(), numVariables);
 
             for (int i = 1; i <= numVariables; i++){
                 if (assignments.ContainsKey(i)){
@@ -62,7 +62,7 @@ namespace Satisfiability.Algorithms
             }
         }
 
-        private Dictionary<int, bool> DPLL (List<List<int>> clauses, Dictionary<int,bool> assignments, int numVariables){
+        private Dictionary<int, bool> recursiveDPLL (List<List<int>> clauses, Dictionary<int,bool> assignments, int numVariables){
             assignments = removeUnitClauses(clauses, assignments);
             assignments = propagatePureLiterals(clauses, assignments);
             if (clauses.Count == 0){
@@ -85,11 +85,11 @@ namespace Satisfiability.Algorithms
                     break;
                 }
             }
-            if (DPLL(firstNewList, firstNewDict, numVariables).Count != 0){
-                return DPLL(firstNewList, firstNewDict, numVariables);
+            if (recursiveDPLL(firstNewList, firstNewDict, numVariables).Count != 0){
+                return recursiveDPLL(firstNewList, firstNewDict, numVariables);
             }
-            if (DPLL(secondNewList, secondNewDict, numVariables).Count != 0){
-                return DPLL(secondNewList, secondNewDict, numVariables);
+            if (recursiveDPLL(secondNewList, secondNewDict, numVariables).Count != 0){
+                return recursiveDPLL(secondNewList, secondNewDict, numVariables);
             }
             return assignments;
         }
